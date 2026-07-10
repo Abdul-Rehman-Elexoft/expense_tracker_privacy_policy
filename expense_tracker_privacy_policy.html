@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Smart Expense Tracker</title>
+<style>
+  :root{
+    --navy:#002354;
+    --navy-soft:#0B3A7A;
+    --navy-tint:#E7EDF6;
+    --ledger:#B98B2E;
+    --ledger-tint:#FBF3E2;
+    --ink:#101820;
+    --ink-soft:#57626F;
+    --paper:#FAFAF8;
+    --paper-alt:#F1F3F7;
+    --line:#DFE3EA;
+    --mono:'JetBrains Mono','SF Mono',Consolas,monospace;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'IBM Plex Serif','Georgia',serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.eyebrow,nav,.tag,.label{
+    font-family:'Inter','Helvetica Neue',Arial,sans-serif;
+  }
+
+  a{color:var(--navy-soft);}
+  a:focus-visible, button:focus-visible{
+    outline:3px solid var(--ledger);
+    outline-offset:2px;
+  }
+
+  /* ---------- Header ---------- */
+  header.hero{
+    position:relative;
+    padding:5rem 1.5rem 4.5rem;
+    background:var(--navy);
+    color:#EAF0FA;
+    overflow:hidden;
+    background-image:
+      repeating-linear-gradient(180deg, rgba(255,255,255,0.035) 0px, rgba(255,255,255,0.035) 1px, transparent 1px, transparent 42px);
+  }
+  .hero-inner{max-width:760px;margin:0 auto;position:relative;z-index:2;}
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:.5rem;
+    font-size:.78rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-weight:600;
+    color:var(--navy);
+    background:var(--ledger-tint);
+    padding:.4rem .8rem;
+    border-radius:3px;
+    margin-bottom:1.75rem;
+    border:1px solid var(--ledger);
+  }
+  .eyebrow .dot{width:6px;height:6px;background:var(--ledger);}
+  h1{
+    font-family:'IBM Plex Serif',Georgia,serif;
+    font-weight:600;
+    font-size:clamp(2.2rem,5.5vw,3.4rem);
+    line-height:1.1;
+    margin:0 0 1.1rem;
+    letter-spacing:-0.01em;
+    color:#fff;
+  }
+  h1 em{
+    font-style:italic;
+    color:#F0C264;
+  }
+  .hero-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.6rem 1.6rem;
+    font-size:.9rem;
+    color:#B9C7DE;
+    font-family:'Inter',sans-serif;
+  }
+  .hero-meta strong{color:#fff;font-weight:600;}
+  .hero-meta a{color:#F0C264;}
+  .ledger-corner{
+    position:absolute;
+    top:0; right:0;
+    width:220px; height:220px;
+    border-left:1px solid rgba(255,255,255,0.12);
+    border-bottom:1px solid rgba(255,255,255,0.12);
+  }
+  .ledger-corner::before, .ledger-corner::after{
+    content:'';
+    position:absolute;
+    background:rgba(240,194,100,0.5);
+  }
+  .ledger-corner::before{ top:40px; right:40px; width:5px; height:5px; border-radius:50%; }
+  .ledger-corner::after{ top:70px; right:80px; width:5px; height:5px; border-radius:50%; }
+
+  /* ---------- Layout ---------- */
+  .layout{
+    max-width:1080px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:250px minmax(0,1fr);
+    gap:3.5rem;
+    padding:3.5rem 1.5rem 6rem;
+  }
+  @media (max-width:860px){
+    .layout{grid-template-columns:1fr; padding-top:2rem;}
+  }
+
+  /* ---------- TOC / nav ---------- */
+  nav.toc{
+    position:sticky;
+    top:1.75rem;
+    align-self:start;
+    font-family:'Inter',sans-serif;
+  }
+  @media (max-width:860px){
+    nav.toc{position:static;}
+  }
+  nav.toc .toc-label{
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-weight:700;
+    color:var(--ink-soft);
+    margin-bottom:.9rem;
+    display:block;
+  }
+  nav.toc ol{
+    list-style:none;
+    margin:0;
+    padding:0;
+    border-left:2px solid var(--line);
+  }
+  nav.toc a{
+    display:block;
+    text-decoration:none;
+    color:var(--ink-soft);
+    font-size:.88rem;
+    font-weight:500;
+    padding:.48rem 0 .48rem 1rem;
+    border-left:2px solid transparent;
+    margin-left:-2px;
+    transition:color .15s ease, border-color .15s ease;
+  }
+  nav.toc a:hover, nav.toc a.active{
+    color:var(--navy);
+    border-left-color:var(--ledger);
+  }
+  nav.toc .toc-num{
+    font-family:var(--mono);
+    color:var(--ledger);
+    margin-right:.5rem;
+    font-size:.76rem;
+  }
+
+  /* ---------- Content ---------- */
+  main{min-width:0;}
+  .intro-card{
+    background:var(--navy-tint);
+    border:1px solid #CBD8EC;
+    border-radius:4px;
+    padding:1.6rem 1.8rem;
+    margin-bottom:3rem;
+    font-size:.98rem;
+    color:var(--ink-soft);
+  }
+  .intro-card strong{color:var(--navy);}
+
+  section.policy-section{
+    padding-top:2.6rem;
+    margin-top:2.6rem;
+    border-top:1px solid var(--line);
+    scroll-margin-top:1.5rem;
+  }
+  section.policy-section:first-of-type{border-top:none;margin-top:0;padding-top:0;}
+
+  .sec-head{
+    display:flex;
+    align-items:baseline;
+    gap:.85rem;
+    margin-bottom:1.1rem;
+  }
+  .sec-num{
+    font-family:var(--mono);
+    font-size:1rem;
+    color:var(--ledger);
+    font-weight:600;
+    flex-shrink:0;
+  }
+  h2{
+    font-size:1.45rem;
+    font-weight:600;
+    margin:0;
+    letter-spacing:-0.01em;
+    color:var(--navy);
+  }
+  h3{
+    font-family:'Inter',sans-serif;
+    font-size:.96rem;
+    font-weight:700;
+    color:var(--navy-soft);
+    margin:1.6rem 0 .6rem;
+  }
+  p{margin:0 0 1rem;color:var(--ink);}
+  ul{margin:0 0 1rem; padding-left:1.3rem;}
+  li{margin-bottom:.4rem;}
+
+  .callout{
+    display:flex;
+    gap:.9rem;
+    background:var(--ledger-tint);
+    border:1px solid #E9D4A5;
+    border-left:4px solid var(--ledger);
+    border-radius:4px;
+    padding:1.1rem 1.3rem;
+    margin:1.2rem 0;
+    font-size:.94rem;
+  }
+  .callout.navy{
+    background:var(--navy-tint);
+    border:1px solid #C5D3EA;
+    border-left:4px solid var(--navy);
+  }
+  .callout .icon{flex-shrink:0;font-size:1.1rem;line-height:1.4;}
+  .callout p{margin:0;}
+
+  /* permissions cards */
+  .perm-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:1rem;
+    margin:1.2rem 0 1.6rem;
+  }
+  .perm-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:1.1rem 1.2rem;
+    font-family:'Inter',sans-serif;
+  }
+  .perm-card .perm-title{
+    display:flex;
+    align-items:center;
+    gap:.55rem;
+    font-weight:700;
+    font-size:.92rem;
+    color:var(--navy);
+    margin-bottom:.4rem;
+  }
+  .perm-card .perm-title .dot{
+    width:8px;height:8px;border-radius:50%;
+    background:var(--ledger);
+    flex-shrink:0;
+  }
+  .perm-card p{
+    font-size:.85rem;
+    color:var(--ink-soft);
+    margin:0;
+  }
+
+  /* third party */
+  .provider-row{
+    display:flex;
+    gap:1.2rem;
+    padding:1.1rem 0;
+    border-bottom:1px solid var(--line);
+  }
+  .provider-row:last-child{border-bottom:none;}
+  .provider-name{
+    font-family:'Inter',sans-serif;
+    font-weight:700;
+    color:var(--navy);
+    font-size:.92rem;
+    min-width:150px;
+    flex-shrink:0;
+  }
+  .provider-desc{font-size:.92rem; color:var(--ink-soft);}
+  .provider-desc ul{margin:.4rem 0 0; padding-left:1.1rem;}
+
+  /* not offered strip */
+  .status-strip{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.8rem;
+    margin:1rem 0 0;
+  }
+  .status-chip{
+    display:flex;
+    align-items:center;
+    gap:.5rem;
+    font-family:'Inter',sans-serif;
+    font-size:.86rem;
+    color:var(--navy);
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:.6rem .95rem;
+  }
+  .status-chip .check{
+    color:#2E7D5B;
+    font-weight:700;
+  }
+
+  .contact-card{
+    margin-top:3rem;
+    background:var(--navy);
+    color:#EAF0FA;
+    border-radius:6px;
+    padding:2.4rem 2.2rem;
+    text-align:center;
+    background-image:
+      repeating-linear-gradient(180deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 42px);
+  }
+  .contact-card h2{color:#fff;margin-bottom:.5rem;}
+  .contact-card p{color:#B9C7DE;max-width:440px;margin:0 auto 1.4rem;}
+  .contact-card a.mail-btn{
+    display:inline-block;
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:.9rem;
+    background:#F0C264;
+    color:var(--navy);
+    padding:.8rem 1.6rem;
+    border-radius:3px;
+    text-decoration:none;
+    transition:background .15s ease, transform .15s ease;
+  }
+  .contact-card a.mail-btn:hover{background:#FFD98A; transform:translateY(-1px);}
+
+  footer{
+    text-align:center;
+    padding:2.5rem 1.5rem 3rem;
+    font-family:'Inter',sans-serif;
+    font-size:.82rem;
+    color:var(--ink-soft);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+  }
+
+  ::selection{background:var(--ledger-tint);color:var(--ink);}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="ledger-corner" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <span class="eyebrow"><span class="dot"></span>Legal &amp; Privacy</span>
+    <h1>How Smart Expense Tracker<br>handles <em>your data</em></h1>
+    <div class="hero-meta">
+      <span><strong>Effective date</strong>&nbsp;July 8, 2026</span>
+      <span><strong>Publisher</strong>&nbsp;Elexoft</span>
+      <span><strong>Contact</strong>&nbsp;<a href="mailto:info@elexoft.com">info@elexoft.com</a></span>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Table of contents">
+    <span class="toc-label">On this page</span>
+    <ol>
+      <li><a href="#s1"><span class="toc-num">01</span>Information We Collect</a></li>
+      <li><a href="#s2"><span class="toc-num">02</span>How We Use Information</a></li>
+      <li><a href="#s3"><span class="toc-num">03</span>Permissions We Request</a></li>
+      <li><a href="#s4"><span class="toc-num">04</span>Third-Party Services</a></li>
+      <li><a href="#s5"><span class="toc-num">05</span>Data Storage</a></li>
+      <li><a href="#s6"><span class="toc-num">06</span>Data Retention</a></li>
+      <li><a href="#s7"><span class="toc-num">07</span>Your Rights</a></li>
+      <li><a href="#s8"><span class="toc-num">08</span>Children's Privacy</a></li>
+      <li><a href="#s9"><span class="toc-num">09</span>Ads, Analytics &amp; Purchases</a></li>
+      <li><a href="#s10"><span class="toc-num">10</span>Policy Changes</a></li>
+      <li><a href="#s11"><span class="toc-num">11</span>Contact Us</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <div class="intro-card">
+      <strong>Elexoft</strong> ("we," "our," or "us") values your privacy. This Privacy Policy explains how Smart Expense Tracker collects, uses, stores, and protects your information when you use our mobile application. By using Smart Expense Tracker, you agree to the collection and use of information in accordance with this Privacy Policy.
+    </div>
+
+    <section class="policy-section" id="s1">
+      <div class="sec-head"><span class="sec-num">01</span><h2>Information We Collect</h2></div>
+
+      <h3>Account Information</h3>
+      <p>When you create an account, we collect your full name and email address. Authentication credentials are managed through:</p>
+      <ul>
+        <li>Email and password</li>
+        <li>Google Sign-In</li>
+        <li>Sign in with Apple</li>
+      </ul>
+      <p>Authentication is securely managed using Supabase Authentication.</p>
+
+      <h3>Financial Information</h3>
+      <p>To provide expense tracking features, we store information that you choose to enter, including:</p>
+      <ul>
+        <li>Expense records</li>
+        <li>Income records</li>
+        <li>Categories</li>
+        <li>Budgets</li>
+        <li>Bills</li>
+        <li>Notes</li>
+        <li>Receipt images</li>
+      </ul>
+      <p>This information is stored securely in our cloud database powered by Supabase.</p>
+
+      <h3>Voice Input</h3>
+      <p>If you choose to use voice input, the application accesses your device's microphone to capture your spoken expense or income details. The recorded voice is processed to convert speech into text and generate a structured entry using AI-powered processing.</p>
+      <div class="callout">
+        <span class="icon">🎙</span>
+        <p>This processing may involve securely transmitting the audio or transcribed content to OpenAI for the purpose of interpreting and organizing the information you provide. Voice input is only used when you explicitly initiate this feature.</p>
+      </div>
+
+      <h3>Receipt Scanning</h3>
+      <p>If you choose to scan a receipt, you may:</p>
+      <ul>
+        <li>Capture a receipt using your device's camera</li>
+        <li>Select an existing receipt image from your photo library</li>
+      </ul>
+      <p>Receipt images are processed using AI-powered services to extract expense information and generate a structured record for your review before it is saved.</p>
+    </section>
+
+    <section class="policy-section" id="s2">
+      <div class="sec-head"><span class="sec-num">02</span><h2>How We Use Your Information</h2></div>
+      <p>We use your information to:</p>
+      <ul>
+        <li>Create and manage your account</li>
+        <li>Authenticate your identity</li>
+        <li>Synchronize your financial data across your devices</li>
+        <li>Store and organize expenses, income, budgets, bills, categories, notes, and receipts</li>
+        <li>Convert voice input into structured financial records</li>
+        <li>Extract expense information from receipt images</li>
+        <li>Improve the reliability and functionality of the application</li>
+        <li>Respond to customer support requests</li>
+      </ul>
+    </section>
+
+    <section class="policy-section" id="s3">
+      <div class="sec-head"><span class="sec-num">03</span><h2>Permissions We Request</h2></div>
+      <div class="perm-grid">
+        <div class="perm-card">
+          <div class="perm-title"><span class="dot"></span>Camera</div>
+          <p>Used to capture receipt images for expense recording.</p>
+        </div>
+        <div class="perm-card">
+          <div class="perm-title"><span class="dot"></span>Microphone</div>
+          <p>Used only when you choose voice input to record spoken expense or income information.</p>
+        </div>
+        <div class="perm-card">
+          <div class="perm-title"><span class="dot"></span>Speech Recognition</div>
+          <p>Used to convert your speech into text for creating financial records.</p>
+        </div>
+        <div class="perm-card">
+          <div class="perm-title"><span class="dot"></span>Photo Library / Storage</div>
+          <p>Used to allow you to select receipt images stored on your device.</p>
+        </div>
+        <div class="perm-card">
+          <div class="perm-title"><span class="dot"></span>Internet Access</div>
+          <p>Required to authenticate users, synchronize data with Supabase, and process AI-powered voice and receipt recognition.</p>
+        </div>
+        <div class="perm-card">
+          <div class="perm-title"><span class="dot"></span>Biometric Authentication</div>
+          <p>If enabled by you, Face ID or Fingerprint can be used to unlock the app securely.</p>
+        </div>
+      </div>
+      <div class="callout navy">
+        <span class="icon">🔒</span>
+        <p>Your biometric information is never collected, stored, or transmitted by Elexoft. Authentication is performed entirely by your device's operating system.</p>
+      </div>
+    </section>
+
+    <section class="policy-section" id="s4">
+      <div class="sec-head"><span class="sec-num">04</span><h2>Third-Party Services</h2></div>
+      <p>We use trusted third-party services to provide essential functionality.</p>
+
+      <div class="provider-row">
+        <div class="provider-name">Supabase</div>
+        <div class="provider-desc">
+          Provides user authentication, secure cloud database, and data storage. Your account and financial records are stored securely using Supabase infrastructure.
+        </div>
+      </div>
+      <div class="provider-row">
+        <div class="provider-name">OpenAI</div>
+        <div class="provider-desc">
+          When you use voice input or receipt scanning, your audio, transcribed text, or receipt image may be securely processed by OpenAI solely to generate structured expense information. We do not use this information to advertise to you.
+        </div>
+      </div>
+      <div class="provider-row">
+        <div class="provider-name">Google Sign-In</div>
+        <div class="provider-desc">
+          If you choose Google Sign-In, Google securely authenticates your identity and provides your basic account information, such as your name and email address.
+        </div>
+      </div>
+      <div class="provider-row">
+        <div class="provider-name">Sign in with Apple</div>
+        <div class="provider-desc">
+          If you choose Sign in with Apple, Apple securely authenticates your identity and may provide your name and email address, depending on your Apple account settings.
+        </div>
+      </div>
+    </section>
+
+    <section class="policy-section" id="s5">
+      <div class="sec-head"><span class="sec-num">05</span><h2>Data Storage</h2></div>
+      <p>Your account information and financial records are securely stored using Supabase cloud services.</p>
+      <p>We take reasonable administrative, technical, and organizational measures to protect your information from unauthorized access, disclosure, alteration, or destruction. However, no method of electronic storage or internet transmission can be guaranteed to be completely secure.</p>
+    </section>
+
+    <section class="policy-section" id="s6">
+      <div class="sec-head"><span class="sec-num">06</span><h2>Data Retention</h2></div>
+      <p>We retain your information for as long as your account remains active or as needed to provide the application's services.</p>
+      <p>If you delete your account, your personal information and associated financial records will be removed in accordance with our data deletion processes, except where retention is required by applicable law.</p>
+    </section>
+
+    <section class="policy-section" id="s7">
+      <div class="sec-head"><span class="sec-num">07</span><h2>Your Rights</h2></div>
+      <p>You may:</p>
+      <ul>
+        <li>Access your information</li>
+        <li>Update your profile information</li>
+        <li>Modify your financial records</li>
+        <li>Delete expenses, income, budgets, bills, notes, categories, and receipts</li>
+        <li>Delete your account and associated data at any time</li>
+      </ul>
+    </section>
+
+    <section class="policy-section" id="s8">
+      <div class="sec-head"><span class="sec-num">08</span><h2>Children's Privacy</h2></div>
+      <p>Smart Expense Tracker is not specifically directed toward children. We do not knowingly collect personal information from children in violation of applicable laws. If we become aware that personal information has been collected from a child where prohibited, we will take appropriate steps to delete it.</p>
+    </section>
+
+    <section class="policy-section" id="s9">
+      <div class="sec-head"><span class="sec-num">09</span><h2>Advertising, Analytics &amp; In-App Purchases</h2></div>
+      <div class="status-strip">
+        <span class="status-chip"><span class="check">✓</span>No advertisements displayed</span>
+        <span class="status-chip"><span class="check">✓</span>No analytics or ad-tracking identifiers</span>
+        <span class="status-chip"><span class="check">✓</span>No subscriptions or in-app purchases</span>
+      </div>
+    </section>
+
+    <section class="policy-section" id="s10">
+      <div class="sec-head"><span class="sec-num">10</span><h2>Changes to This Privacy Policy</h2></div>
+      <p>We may update this Privacy Policy from time to time. Any updates will be posted within the application or on our official website, and the revised Effective Date will reflect the latest version.</p>
+    </section>
+
+    <section class="policy-section" id="s11">
+      <div class="contact-card">
+        <h2>Questions about your data?</h2>
+        <p>Reach out to Elexoft and we'll get back to you within a reasonable time frame.</p>
+        <a class="mail-btn" href="mailto:info@elexoft.com">Email info@elexoft.com</a>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer>
+  © 2026 Elexoft. All rights reserved. By using Smart Expense Tracker, you acknowledge that you have read and understood this Privacy Policy.
+</footer>
+
+<script>
+  const sections = document.querySelectorAll('.policy-section[id]');
+  const links = document.querySelectorAll('nav.toc a');
+  const setActive = () => {
+    let current = '';
+    sections.forEach(sec => {
+      const rect = sec.getBoundingClientRect();
+      if (rect.top <= 120) current = sec.id;
+    });
+    links.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  };
+  document.addEventListener('scroll', setActive, { passive: true });
+  setActive();
+</script>
+
+</body>
+</html>
